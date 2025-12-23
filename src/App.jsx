@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API_URL = "http://localhost:3001/api/session";
+const API_URL = "https://attendly-cloud.vercel.app";
 
 export default function App() {
   const [sessions, setSessions] = useState([]);
@@ -9,7 +9,7 @@ export default function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(API_URL)
+    fetch(`${API_URL}/api/session`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch");
         return res.json();
